@@ -1,4 +1,4 @@
-"id","name","price","quantity","unit","spec","type","supermarket","record_date","insert_time","update_time"
+"goods_id","goods_name","goods_price","quantity","unit","spec","type","supermarket","record_date","insert_time","update_time"
 1,"三全水饺（玉米蔬菜）",13.9,1,"kg","1kg/袋","速冻","北京城乡118辛店店","2020-01-01","2020-03-22 22:23:34","2020-04-12 23:26:57"
 2,"大葱",4.78,1,"kg","称重","蔬菜","北京城乡118辛店店","2020-03-01","2020-03-22 22:26:31","2020-04-12 23:26:57"
 3,"姜",19.0,1,"kg","称重","调味品","北京城乡118辛店店","2020-01-01","2020-03-22 22:38:53","2020-04-12 23:26:57"
