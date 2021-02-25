@@ -12,7 +12,7 @@ server:
       - application/octet-stream
       - application/json
     min-response-size: 1024
-  port: ${SERVER_PORT:8180}
+  port: ${SERVER_PORT:8090}
 
 eureka:
   server:
@@ -33,7 +33,7 @@ spring:
     template-loader-path: classpath:/templates/
     prefer-file-system-access: false
   application:
-    name: redis-manager
+    name: price_list
   resources:
     static-locations: classpath:/
   http:
@@ -42,14 +42,14 @@ spring:
       charset: UTF-8
   datasource:
     # 必填，与数据库同名
-    database: ${DATASOURCE_DATABASE:redis_manager}
+    database: ${DATASOURCE_DATABASE:price_list}
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: ${DATASOURCE_URL:jdbc:mysql://localhost:3306/price_list?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8}
     username: ${DATASOURCE_USERNAME:root}
     password: ${DATASOURCE_PASSWORD:Jabez2020}
     #hikari数据库连接池
     hikari:
-      pool-name: redis-manager-hikaricp
+      pool-name: price_list-hikaricp
       # 最小空闲连接数量
       minimum-idle: 10
       # 空闲连接存活最大时间，默认600000（10分钟）

@@ -14,6 +14,10 @@ public class GoodsInfo {
     private String supermarket;
     private Date record_date;
 
+    public GoodsInfo() {
+
+    }
+
     public GoodsInfo(String goodsName, double goodsPrice, Integer quantity, String unit, String spec, String type, String supermarket, Date record_date) {
         this.goodsName = goodsName;
         this.goodsPrice = goodsPrice;
