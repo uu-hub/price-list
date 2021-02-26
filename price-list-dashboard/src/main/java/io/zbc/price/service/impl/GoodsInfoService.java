@@ -22,4 +22,15 @@ public class GoodsInfoService implements IGoodsInfoService {
     public List<GoodsInfo> getAllGoodsInfoList() {
         return goodsInfoDao.selectAllGoodsInfo();
     }
+
+    @Override
+    public boolean addGoodsInfo(GoodsInfo goodsInfo) {
+        try {
+            return goodsInfoDao.insertGoodsInfo(goodsInfo) > 0;
+        } catch (Exception e) {
+            logger.error("Add goods info failed, " + goodsInfo, e);
+            return false;
+        }
+    }
+
 }
