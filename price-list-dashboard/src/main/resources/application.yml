@@ -14,17 +14,6 @@ server:
     min-response-size: 1024
   port: ${SERVER_PORT:8090}
 
-eureka:
-  server:
-    enable-self-preservation: false
-    eviction-interval-timer-in-ms: 10000
-    max-threads-for-peer-replication: 0
-  dashboard:
-    path: /eureka-ui
-  client:
-    register-with-eureka: false
-    fetch-registry: false
-
 spring:
   devtools:
     restart:
@@ -33,7 +22,7 @@ spring:
     template-loader-path: classpath:/templates/
     prefer-file-system-access: false
   application:
-    name: price_list
+    name: price-list
   resources:
     static-locations: classpath:/
   http:
@@ -68,60 +57,12 @@ mybatis:
     mapUnderscoreToCamelCase: true
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
-
-# http://download.redis.io/releases/
-# redis manager configuration
-redis-manager:
+price-list:
   auth:
     user-name: ${RM_AUTH_USERNAME:admin}
     password: ${RM_AUTH_PASSWORD:admin}
     # avatar(absolute director)
     avatar-path: /data/avatar/
-    authorization:
-      enabled: false
-      company-name: xxx
-      server: xxx
-      site-key: xxx
-      site-secret: xxx
-  # monitor configuration
-  monitor:
-    # 数据保存天数，1-30天, default: 15
-    data-keep-days: 15
-    # slow log limit of one node, default: 20
-    slow-log-limit: 100
-  # installation configuration
-  installation:
-    # 当前主机的 ip，非必须填写，如果使用集群安装无法获取主机IP导致无法安装，请在此填写
-    current-host:
-    # redis.conf(absolute director)
-    conf-path: /app/redis-manager/data/conf/
-    # physics machine
-    machine:
-      # redis package(absolute director)
-      package-path: /app/redis-manager/data/machine/
-    # docker
-    docker:
-      # 默认从官方镜像库拉取
-      images: redis:4.0.10,redis:4.0.14,redis:5.0.5
-      docker-host: tcp://%s:2375
-    humpback:
-      enabled: false
-      images: redis:4.0.10,redis:4.0.14,redis:5.0.5
-      humpback-host: http://%s:8500/dockerapi/v2/
-  alert:
-    data-keep-days: 15
-  rct:
-    email:
-      smtp:
-      from-name:
-      user-name:
-      password:
-      subject: Redis Analyze Report
-    dev:
-      enable: false
-      rdb:
-        port: 9002
-        path: D:\\temp\\rct
 
 logging:
   level:

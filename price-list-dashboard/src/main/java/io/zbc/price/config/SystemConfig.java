@@ -23,62 +23,19 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import javax.servlet.MultipartConfigElement;
 import java.io.File;
 
-/**
- * @author Jay.H.Zou
- * @date 7/6/2019
- */
 @Configuration
 public class SystemConfig implements WebMvcConfigurer {
-
-    public static final String CONFIG_ORIGINAL_PATH = "/data/conf/";
-
-    public static final String MACHINE_PACKAGE_ORIGINAL_PATH = "/data/machine/";
 
     public static final String AVATAR_PATH = "/data/avatar/";
 
     @Value("${server.port}")
     private int serverPort;
 
-    @Value("${redis-manager.installation.conf-path}")
-    private String configPath;
-
-    @Value("${redis-manager.installation.machine.package-path}")
-    private String machinePackagePath;
-
-    @Value("${redis-manager.auth.avatar-path}")
+    @Value("${price-list.auth.avatar-path}")
     private String avatarPath;
-
-    @Value("${redis-manager.auth.authorization.enabled:false}")
-    private boolean authorizationEnabled;
-
-    @Value("${redis-manager.auth.authorization.company-name: OAuth2}")
-    private String companyName;
-
-    @Value("${redis-manager.auth.authorization.server}")
-    private String authorizationServer;
-
-    @Value("${redis-manager.auth.authorization.site-key}")
-    private String siteKey;
-
-    @Value("${redis-manager.auth.authorization.site-secret}")
-    private String siteSecret;
-
-    @Value("${redis-manager.installation.humpback.enabled:false}")
-    private boolean humpbackEnabled;
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        if (Strings.isNullOrEmpty(configPath)) {
-            throw new ConfigurationException("conf-path is empty.");
-        }
-        if (Strings.isNullOrEmpty(machinePackagePath)) {
-            throw new ConfigurationException("machine.package-path is empty.");
-        }
-        File file2 = new File(machinePackagePath);
-        if (!file2.exists()) {
-            file2.mkdirs();
-        }
-
         if (Strings.isNullOrEmpty(avatarPath)) {
             throw new ConfigurationException("avatar-path is empty.");
         }
@@ -87,8 +44,6 @@ public class SystemConfig implements WebMvcConfigurer {
             file3.mkdirs();
         }
         avatarPath += avatarPath.endsWith(SignUtil.SLASH) ? "" : SignUtil.SLASH;
-        registry.addResourceHandler(CONFIG_ORIGINAL_PATH + "**").addResourceLocations("file:" + configPath);
-        registry.addResourceHandler(MACHINE_PACKAGE_ORIGINAL_PATH + "**").addResourceLocations("file:" + machinePackagePath);
         registry.addResourceHandler(AVATAR_PATH + "**").addResourceLocations("file:" + avatarPath);
     }
 
@@ -139,30 +94,6 @@ public class SystemConfig implements WebMvcConfigurer {
 
     public String getAvatarPath() {
         return avatarPath;
-    }
-
-    public boolean getAuthorizationEnabled() {
-        return authorizationEnabled;
-    }
-
-    public String getCompanyName() {
-        return companyName;
-    }
-
-    public String getAuthorizationServer() {
-        return authorizationServer;
-    }
-
-    public String getSiteKey() {
-        return siteKey;
-    }
-
-    public String getSiteSecret() {
-        return siteSecret;
-    }
-
-    public boolean getHumpbackEnabled() {
-        return humpbackEnabled;
     }
 
 }
