@@ -17,7 +17,10 @@ public interface IGoodsInfoDao {
     @Select("SELECT * FROM goods_info WHERE goods_name = #{goodsName}")
     GoodsInfo selectGoodsInfoByName(String goodsName);
 
-    @Insert("")
+    @Insert("INSERT INTO `price_list`.`goods_info` ( " +
+            "`goods_name`, `goods_price`, `quantity`, `unit`, `spec`, `type`, `supermarket`, `record_date` )" +
+            "VALUES" +
+            "(#{goodsName}, #{goodsPrice}, #{quantity}, #{unit}, #{spec}, #{type}, #{supermarket}, #{recordDate})")
     Integer insertGoodsInfo(GoodsInfo goodsInfo);
 
     @Update("")
