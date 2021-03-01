@@ -1,6 +1,10 @@
 package io.zbc.price.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
+
+import static io.zbc.price.util.TimeUtil.TIME_FORMATTER;
 
 public class GoodsInfo {
 
@@ -12,13 +16,13 @@ public class GoodsInfo {
     private String spec;
     private String type;
     private String supermarket;
-    private Date record_date;
+    private Date recordDate;
 
     public GoodsInfo() {
 
     }
 
-    public GoodsInfo(String goodsName, double goodsPrice, Integer quantity, String unit, String spec, String type, String supermarket, Date record_date) {
+    public GoodsInfo(String goodsName, double goodsPrice, Integer quantity, String unit, String spec, String type, String supermarket, Date recordDate) {
         this.goodsName = goodsName;
         this.goodsPrice = goodsPrice;
         this.quantity = quantity;
@@ -26,7 +30,7 @@ public class GoodsInfo {
         this.spec = spec;
         this.type = type;
         this.supermarket = supermarket;
-        this.record_date = record_date;
+        this.recordDate = recordDate;
     }
 
     public Integer getGoodsId() {
@@ -93,11 +97,12 @@ public class GoodsInfo {
         this.supermarket = supermarket;
     }
 
-    public Date getRecord_date() {
-        return record_date;
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
+    public Date getRecordDate() {
+        return recordDate;
     }
 
-    public void setRecord_date(Date record_date) {
-        this.record_date = record_date;
+    public void setRecordDate(Date recordDate) {
+        this.recordDate = recordDate;
     }
 }
