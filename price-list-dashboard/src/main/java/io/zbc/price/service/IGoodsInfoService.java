@@ -8,5 +8,7 @@ public interface IGoodsInfoService {
 
     List<GoodsInfo> getAllGoodsInfoList();
 
-    public boolean addGoodsInfo(GoodsInfo goodsInfo);
+    List<GoodsInfo> getGoodsInfoByName(String goodsName);
+
+    boolean addGoodsInfo(GoodsInfo goodsInfo);
 }

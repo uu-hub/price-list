@@ -14,8 +14,8 @@ public interface IGoodsInfoDao {
     @Select("SELECT * FROM goods_info WHERE goods_id = #{goodsId}")
     GoodsInfo selectGoodsInfoById(Integer goodsId);
 
-    @Select("SELECT * FROM goods_info WHERE goods_name = #{goodsName}")
-    GoodsInfo selectGoodsInfoByName(String goodsName);
+    @Select("SELECT * FROM goods_info WHERE goods_name like concat('%', #{goodsName}, '%')")
+    List<GoodsInfo> selectGoodsInfoByName(String goodsName);
 
     @Insert("INSERT INTO `price_list`.`goods_info` ( " +
             "`goods_name`, `goods_price`, `quantity`, `unit`, `spec`, `type`, `supermarket`, `record_date` )" +

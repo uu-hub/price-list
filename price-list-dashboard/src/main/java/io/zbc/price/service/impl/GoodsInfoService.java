@@ -24,6 +24,11 @@ public class GoodsInfoService implements IGoodsInfoService {
     }
 
     @Override
+    public List<GoodsInfo> getGoodsInfoByName(String goodsName) {
+        return goodsInfoDao.selectGoodsInfoByName(goodsName);
+    }
+
+    @Override
     public boolean addGoodsInfo(GoodsInfo goodsInfo) {
         try {
             return goodsInfoDao.insertGoodsInfo(goodsInfo) > 0;
