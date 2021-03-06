@@ -2,4 +2,4 @@ spring:
   profiles:
     active: dev
   application:
-    name: mall-auth
+    name: mall-eden-auth
