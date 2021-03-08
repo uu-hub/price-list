@@ -2,23 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '@/components/Login'
 import Index from '@/components/Index'
-import Dashboard from '@/components/dashboard/Dashboard'
-import RedisMonitor from '@/components/monitor/RedisMonitor'
-import NodeManage from '@/components/manage/NodeManage'
-import Installation from '@/components/install/Installation'
-import ChannelManage from '@/components/alert/ChannelManage'
-import RuleManage from '@/components/alert/RuleManage'
-import AlertManage from '@/components/alert/AlertManage'
-import MachineManage from '@/components/machine/MachineManage'
-import GroupManage from '@/components/group/GroupManage'
-import UserManage from '@/components/user/UserManage'
-import Profile from '@/components/user/Profile'
-import DataOperation from '@/components/tool/DataOperation'
 import NotFound from '@/components/error/404'
-import EditHistory from '@/components/history/EditHistory'
-import Config from '@/components/rct/Config'
-import TaskProgress from '@/components/rct/TaskProgress'
-import JobList from '@/components/rct/JobList'
 import JobResultDetail from '@/components/rct/JobResultDetail'
 
 import API from '@/api/api.js'
@@ -47,79 +31,9 @@ const router = new Router({
       component: Index,
       children: [
         {
-          name: 'dashboard',
-          path: '/dashboard/group/:groupId',
-          component: Dashboard
-        },
-        {
-          name: 'redis-monitor',
-          path: '/redis-monitor/cluster/:clusterId',
-          component: RedisMonitor
-        },
-        {
-          name: 'redis-manage',
-          path: '/redis-manage/cluster/:clusterId',
-          component: NodeManage
-        },
-        {
-          name: 'installation',
-          path: '/installation/group/:groupId',
-          component: Installation
-        },
-        {
-          name: 'channel-manage',
-          path: '/channel-manage/group/:groupId',
-          component: ChannelManage
-        }, {
-          name: 'rule-manage',
-          path: '/rule-manage/group/:groupId',
-          component: RuleManage
-        }, {
-          name: 'alert-manage',
-          path: '/alert-manage/cluster/:clusterId',
-          component: AlertManage
-        }, {
-          name: 'machine-manage',
-          path: '/machine-manage/group/:groupId',
-          component: MachineManage
-        }, {
-          name: 'group-manage',
-          path: '/group-manage',
-          component: GroupManage
-        },
-        {
-          name: 'user-manage',
-          path: '/user-manage/group/:groupId',
-          component: UserManage
-        },
-        {
-          name: 'edit-history',
-          path: '/history/group/:groupId',
-          component: EditHistory
-        },
-        {
-          name: 'profile',
-          path: '/profile/:userId',
-          component: Profile
-        },
-        {
-          name: 'data-operation',
-          path: '/data-operation/group/:groupId',
-          component: DataOperation
-        }, {
-          name: 'Config',
-          path: '/rct/config',
-          component: Config
-
-        }, {
-          name: 'TaskProgress',
-          path: '/rct/taskProgress/:clusterId',
-          component: TaskProgress
-
-        }, {
-          name: 'jobList',
-          path: '/rct/jobList',
-          component: JobList
+          name: 'pricelist',
+          path: '/list/priceList',
+          component: PriceList
         }, {
           name: 'jobResultDetail',
           path: '/rct/jobResultDetail',
