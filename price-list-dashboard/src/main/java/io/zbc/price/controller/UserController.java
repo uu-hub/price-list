@@ -35,4 +35,14 @@ public class UserController {
         return Result.successResult(userLogin);
     }
 
+    @RequestMapping(value = "/getUserFromSession", method = RequestMethod.GET)
+    @ResponseBody
+    public Result getUserFromSession(HttpSession session) {
+        User userLogin = (User) session.getAttribute("user");
+        if (userLogin == null) {
+            return Result.failResult();
+        }
+        return Result.successResult(userLogin);
+    }
+
 }
