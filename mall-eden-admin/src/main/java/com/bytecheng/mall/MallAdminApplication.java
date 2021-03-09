@@ -5,6 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
+import java.util.concurrent.locks.LockSupport;
+
 /**
  * @auther zmsoft
  * @Created 2021/3/4 13:53

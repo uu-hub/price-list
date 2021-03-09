@@ -12,6 +12,7 @@
     <module>mall-eden-common</module>
     <module>mall-eden-admin</module>
       <module>mall-eden-mbg</module>
+      <module>mall-eden-gateway</module>
   </modules>
   <packaging>pom</packaging>
 
