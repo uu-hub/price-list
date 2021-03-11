@@ -32,4 +32,14 @@ public class UserService implements IUserService {
         }
     }
 
+    @Override
+    public User getUserByName(String userName) {
+        try {
+            return userDao.selectUserByName(userName);
+        } catch (Exception e) {
+            logger.error("Get user by user name failed, user name = " + userName, e);
+            return new User();
+        }
+    }
+
 }

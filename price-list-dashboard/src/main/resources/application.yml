@@ -12,7 +12,7 @@ server:
       - application/octet-stream
       - application/json
     min-response-size: 1024
-  port: ${SERVER_PORT:8090}
+  port: ${SERVER_PORT:8182}
 
 spring:
   devtools:
@@ -63,6 +63,11 @@ price-list:
     password: ${RM_AUTH_PASSWORD:admin}
     # avatar(absolute director)
     avatar-path: /data/avatar/
+    authorization:
+      enabled: false
+      server: xxx
+      site-key: xxx
+      site-secret: xxx
 
 logging:
   level:

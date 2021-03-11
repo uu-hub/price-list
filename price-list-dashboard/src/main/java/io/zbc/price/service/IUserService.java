@@ -6,4 +6,6 @@ public interface IUserService {
 
     User getUserByNameAndPassword(User user);
 
+    User getUserByName(String userName);
+
 }

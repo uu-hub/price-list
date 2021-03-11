@@ -34,6 +34,18 @@ public class SystemConfig implements WebMvcConfigurer {
     @Value("${price-list.auth.avatar-path}")
     private String avatarPath;
 
+    @Value("${price-list.auth.authorization.enabled:false}")
+    private boolean authorizationEnabled;
+
+    @Value("${price-list.auth.authorization.server}")
+    private String authorizationServer;
+
+    @Value("${price-list.auth.authorization.site-key}")
+    private String siteKey;
+
+    @Value("${price-list.auth.authorization.site-secret}")
+    private String siteSecret;
+
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         if (Strings.isNullOrEmpty(avatarPath)) {
@@ -94,6 +106,22 @@ public class SystemConfig implements WebMvcConfigurer {
 
     public String getAvatarPath() {
         return avatarPath;
+    }
+
+    public boolean getAuthorizationEnabled() {
+        return authorizationEnabled;
+    }
+
+    public String getAuthorizationServer() {
+        return authorizationServer;
+    }
+
+    public String getSiteKey() {
+        return siteKey;
+    }
+
+    public String getSiteSecret() {
+        return siteSecret;
     }
 
 }
