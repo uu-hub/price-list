@@ -2,27 +2,21 @@
   <div class="page-container">
     <p class="code">404</p>
     <div>
-      <el-link @click="toDashboard()">Back to home page</el-link>
+      <el-link @click="toPriceList()">Back to home page</el-link>
     </div>
   </div>
 </template>
 
 <script>
-import { store } from "@/vuex/store.js";
 export default {
   methods: {
-    toDashboard() {
+    toPriceList() {
       this.$router.push({
-        name: "dashboard",
-        params: { groupId: this.currentGroup.groupId }
+        name: "pricelist"
       });
     }
   },
   computed: {
-    // 监听group变化
-    currentGroup() {
-      return store.getters.getCurrentGroup;
-    }
   }
 };
 </script>
