@@ -7,50 +7,11 @@
 </template>
 
 <script>
-import { store } from '@/vuex/store.js'
-import { isEmpty } from '@/utils/validate.js'
-import API from '@/api/api.js'
-import message from '@/utils/message.js'
 export default {
   name: 'App',
   methods: {
-    getInstallationEnvironmentList () {
-      let url = '/system/getInstallationEnvironment'
-      API.get(
-        url,
-        null,
-        response => {
-          let environmentList = response.data.data
-          let installationEnvironmentList = []
-          environmentList.forEach(environment => {
-            let name = ''
-            if (environment == 0) {
-              name = 'Docker'
-            } else if (environment == 1) {
-              name = 'Machine'
-            } else if (environment == 3) {
-              name = 'Humpback'
-            }
-            if (!isEmpty(name)) {
-              installationEnvironmentList.push({
-                type: environment,
-                name: name
-              })
-            }
-          })
-          store.dispatch(
-            'setInstallationEnvironmentList',
-            installationEnvironmentList
-          )
-        },
-        err => {
-          message.error('Get installation environment failed')
-        }
-      )
-    }
   },
   mounted () {
-    this.getInstallationEnvironmentList()
   }
 }
 </script>

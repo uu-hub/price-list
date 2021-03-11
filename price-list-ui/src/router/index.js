@@ -2,8 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '@/components/Login'
 import Index from '@/components/Index'
+import PriceList from '@/components/pricelist/PriceList'
 import NotFound from '@/components/error/404'
-import JobResultDetail from '@/components/rct/JobResultDetail'
 
 import API from '@/api/api.js'
 import { store } from '@/vuex/store.js'
@@ -32,12 +32,8 @@ const router = new Router({
       children: [
         {
           name: 'pricelist',
-          path: '/list/priceList',
+          path: '/list/getAllGoodsInfo',
           component: PriceList
-        }, {
-          name: 'jobResultDetail',
-          path: '/rct/jobResultDetail',
-          component: JobResultDetail
         }
       ]
     },
@@ -83,16 +79,6 @@ router.beforeEach((to, from, next) => {
     } else {
       next({ path: 'login' })
     }
-
-    // admin
-  } else if (user.userRole === 1 && toPath.indexOf('group-manage') > 0) {
-    next({ name: 'dashboard', params: { groupId: store.getters.getCurrentGroup.groupId } })
-  } else if (user.userRole === 2 && (toPath.indexOf('group-manage') > 0 || toPath.indexOf('user-manage') > 0 ||
-    toPath.indexOf('machine-manage') > 0 || toPath.indexOf('installation') > 0 ||
-    toPath.indexOf('channel-manage') > 0 || toPath.indexOf('rule-manage') > 0 ||
-    toPath.indexOf('redis-manage') > 0 || toPath.indexOf('alert-manage') > 0 ||
-    toPath.indexOf('edit-history') > 0)) {
-    next({ name: 'dashboard', params: { groupId: store.getters.getCurrentGroup.groupId } })
   } else {
     next()
   }

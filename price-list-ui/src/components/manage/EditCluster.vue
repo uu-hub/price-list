@@ -51,7 +51,6 @@
 import { store } from "@/vuex/store.js";
 import { isEmpty, validateIpAndPort } from "@/utils/validate.js";
 import API from "@/api/api.js";
-import { getClusterById } from "@/components/cluster/cluster.js";
 import message from "@/utils/message.js";
 
 export default {

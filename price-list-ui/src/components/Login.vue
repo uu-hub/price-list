@@ -80,21 +80,6 @@ export default {
     };
   },
   methods: {
-    getAuthorization() {
-      let url = "/system/getAuthorization";
-      API.get(
-        url,
-        null,
-        response => {
-          let authorization = response.data.data;
-          authorization.server += authorization.server.endsWith("/") ? "" : "/";
-          this.authorization = authorization;
-        },
-        err => {
-          message.error("Get authorization failed");
-        }
-      );
-    },
     signIn(user) {
       this.$refs[user].validate(valid => {
         if (valid) {
@@ -117,33 +102,9 @@ export default {
           );
         }
       });
-    },
-    // getUserFromSession() {
-    //   let url = "/user/getUserFromSession";
-    //   API.get(
-    //     url,
-    //     null,
-    //     response => {
-    //       let result = response.data;
-    //       if (result.code == 0) {
-    //         store.dispatch("setUser", result.data);
-    //         this.$router.push({ name: "index" });
-    //       }
-    //     },
-    //     err => {
-    //       message.error("Auto get user failed.");
-    //     }
-    //   );
-    // }
+    }
   },
   mounted() {
-    //this.getUserFromSession();
-    this.getAuthorization();
-    store.dispatch("setUser", {
-      userRole: 2
-    });
-    store.dispatch("setCurrentGroup", {});
-    store.dispatch("setGroupList", []);
   }
 };
 </script>
