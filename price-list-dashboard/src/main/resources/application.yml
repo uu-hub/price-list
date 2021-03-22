@@ -68,6 +68,9 @@ price-list:
       server: xxx
       site-key: xxx
       site-secret: xxx
+  installation:
+    # redis.conf(absolute director)
+    conf-path: /data/conf/
 
 logging:
   level:

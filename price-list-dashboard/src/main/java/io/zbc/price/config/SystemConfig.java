@@ -26,10 +26,15 @@ import java.io.File;
 @Configuration
 public class SystemConfig implements WebMvcConfigurer {
 
+    public static final String CONFIG_ORIGINAL_PATH = "/data/conf/";
+
     public static final String AVATAR_PATH = "/data/avatar/";
 
     @Value("${server.port}")
     private int serverPort;
+
+    @Value("${redis-manager.installation.conf-path}")
+    private String configPath;
 
     @Value("${price-list.auth.avatar-path}")
     private String avatarPath;
@@ -56,6 +61,7 @@ public class SystemConfig implements WebMvcConfigurer {
             file3.mkdirs();
         }
         avatarPath += avatarPath.endsWith(SignUtil.SLASH) ? "" : SignUtil.SLASH;
+        registry.addResourceHandler(CONFIG_ORIGINAL_PATH + "**").addResourceLocations("file:" + configPath);
         registry.addResourceHandler(AVATAR_PATH + "**").addResourceLocations("file:" + avatarPath);
     }
 

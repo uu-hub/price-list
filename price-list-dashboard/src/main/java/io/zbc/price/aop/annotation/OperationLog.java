@@ -6,10 +6,6 @@ import io.zbc.price.entity.OperationType;
 import javax.validation.constraints.NotNull;
 import java.lang.annotation.*;
 
-/**
- * @author fw13
- * @date 2019/11/20 11:17
- */
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
